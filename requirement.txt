@@ -1,0 +1,16 @@
+langchain
+python-dotenv
+langchain-community
+beautifulsoup4
+langgraph
+langchain-core
+langchain-text-splitters
+chromadb
+faiss-cpu
+langchain-chroma
+streamlit
+langchain-groq
+reportlab
+pandas
+requests
+matplotlib
