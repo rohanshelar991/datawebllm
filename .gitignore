@@ -4,3 +4,25 @@
 
 # LangGraph
 .langgraph_api/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Streamlit (keep config tracked)
+.streamlit/
+!.streamlit/
+!.streamlit/config.toml
+!.streamlit/secrets.toml.example
+.streamlit/secrets.toml
+
+# Data artifacts
+*.png
+*.duckdb
