@@ -32,7 +32,6 @@ node_modules/
 *.duckdb
 .DS_Store
 frontend/dist/
-public/
 backend/storage/*
 !backend/storage/.gitkeep
 !backend/storage/datasets/
