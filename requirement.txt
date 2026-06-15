@@ -17,3 +17,10 @@ matplotlib
 duckdb
 sqlglot
 altair
+protobuf>=4.25,<5
+openpyxl
+pytest
+fastapi
+uvicorn[standard]
+python-multipart
+firebase-admin

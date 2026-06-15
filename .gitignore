@@ -15,6 +15,10 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.pytest_cache/
+
+# Node
+node_modules/
 
 # Streamlit (keep config tracked)
 .streamlit/
@@ -26,3 +30,10 @@ venv/
 # Data artifacts
 *.png
 *.duckdb
+.DS_Store
+frontend/dist/
+backend/storage/*
+!backend/storage/.gitkeep
+!backend/storage/datasets/
+backend/storage/datasets/*
+!backend/storage/datasets/.gitkeep
