@@ -37,3 +37,4 @@ backend/storage/*
 !backend/storage/datasets/
 backend/storage/datasets/*
 !backend/storage/datasets/.gitkeep
+.vercel
