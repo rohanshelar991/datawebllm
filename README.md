@@ -120,22 +120,21 @@ The previous default, `llama-3.1-8b-instant`, was retired by Groq. Set `GROQ_MOD
 
 ## Deploy To Vercel
 
-This repository includes `vercel.json` for a single Vercel project:
+This repository uses Vercel Services to deploy the FastAPI backend and Vite frontend in one project:
 
-- Build command: `cd frontend && npm install && npm run build`
-- Output directory: `frontend/dist`
-- API function: `api/index.py`
-- API route: `/api/:path*`
-- App fallback: `/index.html`
+- `app` runs the FastAPI backend from `api/index.py` and receives `/api/*` traffic.
+- `frontend` builds the Vite app from `frontend/` and receives all other public paths.
+- The browser calls the backend at the same-domain `/api` path, so no service binding is needed.
 
 Steps:
 
 1. Import `rohanshelar991/datawebllm` into Vercel.
 2. Keep the Vercel root directory as the repository root.
-3. Add backend environment variables in Vercel Project Settings.
-4. Leave `VITE_API_BASE_URL` unset for production unless you deploy the API separately.
-5. Deploy.
-6. Check `/api/health`, then register, upload/import a dataset, and run a question.
+3. Select **Services** as the project framework when prompted.
+4. Add backend environment variables in Vercel Project Settings.
+5. Leave `VITE_API_BASE_URL` unset; production API requests use `/api` on the same domain.
+6. Deploy.
+7. Check `/api/health`, then register, upload/import a dataset, and run a question.
 
 Use `VERCEL_DEPLOY.md` for the full deployment checklist.
 

@@ -1,6 +1,13 @@
 # Vercel Deployment Checklist
 
-Use one Vercel project for both the React frontend and FastAPI backend.
+Use one Vercel project with Vercel Services for the React frontend and FastAPI backend.
+
+## Service Routing
+
+- Project framework: **Services**
+- `app`: FastAPI service using `api/index.py`, public at `/api/*`
+- `frontend`: Vite service rooted at `frontend/`, public for all other paths
+- The browser calls `/api` on the same domain, so there are no service-to-service bindings
 
 ## Project Settings
 
@@ -16,6 +23,7 @@ Set these in Vercel Project Settings -> Environment Variables:
 
 ```text
 GROQ_API_KEY=<your-groq-api-key>
+GROQ_MODEL=openai/gpt-oss-20b
 ALLOW_SIGNUPS=true
 SESSION_HOURS=24
 FIREBASE_SERVICE_ACCOUNT_JSON=<full-firebase-service-account-json>
