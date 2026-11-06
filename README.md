@@ -109,6 +109,8 @@ On Vercel this can stay empty because the frontend falls back to same-origin `/a
 | `FIRESTORE_DATABASE_ID` | Optional | Defaults to `(default)` |
 | `CORS_ORIGINS` | Optional | Comma-separated allowed frontend origins |
 
+The previous default, `llama-3.1-8b-instant`, was retired by Groq. Set `GROQ_MODEL` in your deployment environment to the replacement model if you already deployed the app.
+
 ### Frontend
 
 | Variable | Required | Purpose |
