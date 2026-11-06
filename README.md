@@ -54,6 +54,7 @@ Set at least:
 
 ```bash
 GROQ_API_KEY=your_groq_key
+GROQ_MODEL=openai/gpt-oss-20b
 ALLOW_SIGNUPS=true
 SESSION_HOURS=24
 ```
@@ -96,6 +97,7 @@ On Vercel this can stay empty because the frontend falls back to same-origin `/a
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `GROQ_API_KEY` | Yes | Enables NL-to-SQL generation |
+| `GROQ_MODEL` | No | Groq model for NL-to-SQL generation (defaults to `openai/gpt-oss-20b`) |
 | `ALLOW_SIGNUPS` | No | Enables self-service registration |
 | `SESSION_HOURS` | No | Session lifetime in hours |
 | `ADMIN_EMAIL` | No | Optional bootstrap admin email |

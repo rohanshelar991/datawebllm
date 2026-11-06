@@ -172,7 +172,7 @@ User question:
 {question}
 """.strip()
 
-    llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0, api_key=settings.groq_api_key, timeout=45, max_retries=2)
+    llm = ChatGroq(model=settings.groq_model, temperature=0, api_key=settings.groq_api_key, timeout=45, max_retries=2)
     sql = (llm.invoke(prompt).content or "").strip()
     return re.sub(r"^```(?:sql)?\s*|\s*```$", "", sql, flags=re.IGNORECASE).strip()
 
@@ -210,7 +210,7 @@ Error:
 {error_message}
 """.strip()
 
-    llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0, api_key=settings.groq_api_key, timeout=45, max_retries=2)
+    llm = ChatGroq(model=settings.groq_model, temperature=0, api_key=settings.groq_api_key, timeout=45, max_retries=2)
     sql = (llm.invoke(prompt).content or "").strip()
     return re.sub(r"^```(?:sql)?\s*|\s*```$", "", sql, flags=re.IGNORECASE).strip()
 

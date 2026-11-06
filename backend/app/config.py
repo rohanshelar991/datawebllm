@@ -15,6 +15,7 @@ class Settings:
     app_name: str = "Conversational Data Intelligence API"
     api_prefix: str = "/api"
     groq_api_key: str = os.getenv("GROQ_API_KEY", "").strip()
+    groq_model: str = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b").strip() or "openai/gpt-oss-20b"
     cors_origins: tuple[str, ...] = tuple(
         origin.strip() for origin in os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if origin.strip()
     )

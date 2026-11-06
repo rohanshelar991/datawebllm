@@ -82,6 +82,11 @@ def get_groq_api_key() -> str:
     return str(st.session_state.get("session_groq_key", "") or "").strip()
 
 
+def get_groq_model() -> str:
+    """Return the configured Groq model, defaulting to its recommended replacement."""
+    return (os.getenv("GROQ_MODEL") or "openai/gpt-oss-20b").strip() or "openai/gpt-oss-20b"
+
+
 def get_app_password() -> str:
     env_password = (os.getenv("APP_PASSWORD") or "").strip()
     if env_password:
@@ -561,7 +566,7 @@ User question:
 {question}
 """.strip()
 
-    llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0, api_key=api_key, timeout=45, max_retries=2)
+    llm = ChatGroq(model=get_groq_model(), temperature=0, api_key=api_key, timeout=45, max_retries=2)
     sql = (llm.invoke(prompt).content or "").strip()
     # Some models may wrap with ```sql
     sql = re.sub(r"^```(?:sql)?\s*|\s*```$", "", sql, flags=re.IGNORECASE).strip()
@@ -611,7 +616,7 @@ DuckDB error:
 {error_message}
 """.strip()
 
-    llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0, api_key=api_key, timeout=45, max_retries=2)
+    llm = ChatGroq(model=get_groq_model(), temperature=0, api_key=api_key, timeout=45, max_retries=2)
     sql = (llm.invoke(prompt).content or "").strip()
     sql = re.sub(r"^```(?:sql)?\s*|\s*```$", "", sql, flags=re.IGNORECASE).strip()
     return sql
